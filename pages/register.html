@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/register.css" />
+    <title>register</title>
+  </head>
+  <body>
+    <main>
+      <div class="register-wrapper">
+        <form class="register-form">
+          <input
+            type="text"
+            placeholder="Křestní jméno"
+            class="input-objects"
+          />
+          <input type="text" placeholder="Přijmení" class="input-objects" />
+          <input
+            type="email"
+            placeholder="Přihlašovací email"
+            class="input-objects"
+          />
+          <input
+            type="password"
+            id="passwd"
+            placeholder="Vaše heslo"
+            class="input-objects"
+          />
+          <input
+            type="password"
+            id="passwd-control"
+            placeholder="Heslo znovu"
+            class="input-objects"
+          />
+          <button type="submit" class="input-button">Odeslat</button>
+        </form>
+        <a href="./test-pages.html">Test-page</a>
+      </div>
+    </main>
+    <footer class="register-footer"></footer>
+    <script type="module" src="/src/register.ts" defer></script>
+  </body>
+</html>

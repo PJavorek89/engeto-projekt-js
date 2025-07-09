@@ -1,0 +1,46 @@
+@import "./global.css";
+
+.register-wrapper {
+  height: calc(100vh - (2 * var(--height-header)));
+  /* background-color: blue; */
+  /* margin: 5px; */
+  /* border: 1px solid transparent; ochrana proti margin collapsing */
+  background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    url("/pictures/movies-bg-register.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  row-gap: 5px;
+  /* margin: 20px; */
+}
+
+.register-form * {
+  width: clamp(250px, var(--width-mobile-container), 410px);
+}
+
+.input-objects {
+  height: 2.75rem;
+  background-color: var(--color-basic-black);
+  color: var(--color-fonts-main);
+}
+
+.input-button {
+  color: var(--color-fonts-main);
+  background-color: var(--color-main-red);
+  height: 3.5rem;
+}
+
+.register-footer {
+  background-color: var(--color-basic-black);
+  height: var(--height-header);
+}

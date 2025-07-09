@@ -1,0 +1,19 @@
+{
+  "name": "engeto-projekt-js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build   && node scripts/copy-html.cjs && node scripts/change-links.cjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

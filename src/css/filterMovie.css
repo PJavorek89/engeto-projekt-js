@@ -1,0 +1,24 @@
+.filtered-movie-spaceholder {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.filter-movie-envelope {
+  height: 140px;
+  width: 100px;
+}
+
+.filter-movie-envelope img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.no-image-movie {
+  color: white;
+}

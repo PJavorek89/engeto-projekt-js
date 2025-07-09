@@ -1,0 +1,45 @@
+#fa-up {
+  /* width: 32px; */
+  /* height: 32px; */
+  font-weight: 400;
+  font-size: 35px;
+  border-radius: 50%;
+  color: red;
+  clip-path: circle(50%);
+  position: fixed;
+  right: 80px;
+  /* left: calc(100vw / 2); */
+  bottom: 100px;
+  /* visibility: hidden; */
+  /* border-color: #333 transparent transparent transparent; */
+}
+
+#fa-up:hover {
+  cursor: copy;
+}
+
+.test-triangle {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* pod bublinou */
+  left: 20px; /* odsazení od levého okraje */
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent; /* trojúhelník */
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+#test-page-register {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 10px auto;
+  gap: 10px;
+}
