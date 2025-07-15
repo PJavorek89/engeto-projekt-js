@@ -38,4 +38,6 @@
 
 .error-element {
   color: var(--color-fonts-main);
+  white-space: pre-line;
+  text-align: center;
 }

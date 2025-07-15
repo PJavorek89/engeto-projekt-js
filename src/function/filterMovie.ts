@@ -41,6 +41,7 @@ const filteredMovie = async (
   const urlToCall = "https://api.tvmaze.com/search/shows?q=";
   let data: [] = [];
   let isError: boolean = false;
+  let errorType: Text = document.createTextNode("");
   //const isLoading: boolean = true;
   //vytvorit loadinf element a dat do dat (ne, vyresit pripnuti a odepnuti)
   const loadingElement = addElement({
@@ -57,57 +58,70 @@ const filteredMovie = async (
     classToAdd: "error-element",
     idToAdd: "error-element",
   });
-  errorElement.innerText = "Opps, something went wrong";
+  errorElement.textContent = "Opps, something went wrong \n";
   try {
     const response = await fetch(urlToCall + valueToFilter);
     data = await response.json();
+    if (!response.ok) {
+      throw new Error(`${response.status.toString()}`);
+    }
   } catch (err) {
+    console.log("catch" + err);
     isError = true;
+    errorType = document.createTextNode(err as string);
+    //console.log(errorType);
+
     //whereToAdd?.appendChild(errorElement);
   } finally {
     whereToAdd?.removeChild(loadingElement);
   }
 
   //na konci cele fetch jen vrati data
-  console.log(data);
+  console.log(isError);
 
   //mozna if-else i na error (true, false)
 
-  const newArray = data.map((movie: Movie) => {
-    const { image, name } = movie.show;
-    if (image == null) {
-      const movieFilterEnvelope = addElement({
-        typeOfElement: "div",
-        classToAdd: ["filter-movie-envelope", "no-image-movie"],
-        whereToAdd: whereToAdd,
-      });
-      const textNodeMovieName = document.createTextNode(name);
-      movieFilterEnvelope.appendChild(textNodeMovieName);
-      const noImageTag = addElement({
-        typeOfElement: "div",
-        whereToAdd: movieFilterEnvelope,
-      });
-      noImageTag.textContent = "(no image)";
+  if (isError) {
+    errorElement.appendChild(errorType);
+    whereToAdd?.appendChild(errorElement);
+    console.log("isError -> true");
+  } else {
+    data.forEach((movie: Movie) => {
+      const { image, name } = movie.show;
+      if (image == null) {
+        const movieFilterEnvelope = addElement({
+          typeOfElement: "div",
+          classToAdd: ["filter-movie-envelope", "no-image-movie"],
+          whereToAdd: whereToAdd,
+        });
+        const textNodeMovieName = document.createTextNode(name);
+        movieFilterEnvelope.appendChild(textNodeMovieName);
+        const noImageTag = addElement({
+          typeOfElement: "div",
+          whereToAdd: movieFilterEnvelope,
+        });
+        noImageTag.textContent = "(no image)";
 
-      return true;
-    } else {
-      const { medium } = image;
-      const movieFilterEnvelope = addElement({
-        typeOfElement: "div",
-        classToAdd: "filter-movie-envelope",
-        whereToAdd: whereToAdd,
-      });
-      const imgElement = addElement({
-        typeOfElement: "img",
-        whereToAdd: movieFilterEnvelope,
-      }) as HTMLImageElement;
-      imgElement.src = medium;
-      imgElement.alt = `image for movie ${name}`;
-      return medium;
-    }
-  });
+        return true;
+      } else {
+        const { medium } = image;
+        const movieFilterEnvelope = addElement({
+          typeOfElement: "div",
+          classToAdd: "filter-movie-envelope",
+          whereToAdd: whereToAdd,
+        });
+        const imgElement = addElement({
+          typeOfElement: "img",
+          whereToAdd: movieFilterEnvelope,
+        }) as HTMLImageElement;
+        imgElement.src = medium;
+        imgElement.alt = `image for movie ${name}`;
+        return medium;
+      }
+    });
+  }
 
-  console.log(newArray);
+  //console.log(newArray);
 };
 
 /*
