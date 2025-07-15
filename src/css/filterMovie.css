@@ -29,5 +29,13 @@
 }
 
 .no-image-movie {
-  color: white;
+  color: var(--color-fonts-main);
+}
+
+.loading-element {
+  color: var(--color-fonts-main);
+}
+
+.error-element {
+  color: var(--color-fonts-main);
 }

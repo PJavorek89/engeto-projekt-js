@@ -40,14 +40,38 @@ const filteredMovie = async (
 ) => {
   const urlToCall = "https://api.tvmaze.com/search/shows?q=";
   let data: [] = [];
+  let isError: boolean = false;
+  //const isLoading: boolean = true;
+  //vytvorit loadinf element a dat do dat (ne, vyresit pripnuti a odepnuti)
+  const loadingElement = addElement({
+    typeOfElement: "p",
+    classToAdd: "loading-element",
+    whereToAdd: whereToAdd,
+    isPrepend: true,
+    idToAdd: "loading-element",
+  });
+  loadingElement.innerText = "Loading...";
+  //vytvorit error element a pridat do dat v pripade
+  const errorElement = addElement({
+    typeOfElement: "div",
+    classToAdd: "error-element",
+    idToAdd: "error-element",
+  });
+  errorElement.innerText = "Opps, something went wrong";
   try {
     const response = await fetch(urlToCall + valueToFilter);
     data = await response.json();
   } catch (err) {
-    console.log("this is erro:" + err);
+    isError = true;
+    //whereToAdd?.appendChild(errorElement);
+  } finally {
+    whereToAdd?.removeChild(loadingElement);
   }
 
+  //na konci cele fetch jen vrati data
   console.log(data);
+
+  //mozna if-else i na error (true, false)
 
   const newArray = data.map((movie: Movie) => {
     const { image, name } = movie.show;
