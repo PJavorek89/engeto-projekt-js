@@ -30,6 +30,8 @@
 
 .no-image-movie {
   color: var(--color-fonts-main);
+  border: 1px solid white;
+  text-align: center;
 }
 
 .loading-element {
