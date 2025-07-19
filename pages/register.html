@@ -10,33 +10,48 @@
   <body>
     <main>
       <div class="register-wrapper">
-        <form class="register-form">
+        <form method="post" id="register-form" class="register-form">
           <input
             type="text"
             placeholder="Křestní jméno"
+            name="firstName"
             class="input-objects"
+            required
           />
-          <input type="text" placeholder="Přijmení" class="input-objects" />
+          <input
+            type="text"
+            placeholder="Přijmení"
+            name="secondName"
+            class="input-objects"
+            required
+          />
           <input
             type="email"
             placeholder="Přihlašovací email"
+            name="email"
             class="input-objects"
+            required
           />
           <input
             type="password"
             id="passwd"
             placeholder="Vaše heslo"
+            name="passwd"
             class="input-objects"
+            required
           />
           <input
             type="password"
             id="passwd-control"
             placeholder="Heslo znovu"
+            name="passwdControl"
             class="input-objects"
+            required
           />
-          <button type="submit" class="input-button">Odeslat</button>
+          <button type="submit" id="input-button" class="input-button">
+            Odeslat
+          </button>
         </form>
-        <a href="./test-pages.html">Test-page</a>
       </div>
     </main>
     <footer class="register-footer"></footer>

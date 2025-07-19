@@ -185,6 +185,9 @@ footer ul {
   .footer-wrapper {
     width: unset;
   }
+  footer ul {
+    font-size: small;
+  }
 }
 
 /* desktop */

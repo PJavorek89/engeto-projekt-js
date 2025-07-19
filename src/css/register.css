@@ -13,6 +13,10 @@
     url("/pictures/movies-bg-register.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .register-form {
@@ -21,11 +25,15 @@
   align-items: center;
   padding: 3rem 0;
   row-gap: 5px;
+  /* position: relative; */
   /* margin: 20px; */
+  width: clamp(250px, var(--width-mobile-container), 410px);
+  position: relative;
 }
 
 .register-form * {
-  width: clamp(250px, var(--width-mobile-container), 410px);
+  /* width: clamp(250px, var(--width-mobile-container), 410px); */
+  width: 100%;
 }
 
 .input-objects {
@@ -34,10 +42,37 @@
   color: var(--color-fonts-main);
 }
 
+.input-objects:focus {
+  outline: 1px solid blue;
+}
+
 .input-button {
   color: var(--color-fonts-main);
   background-color: var(--color-main-red);
   height: 3.5rem;
+  /* position: relative; */
+}
+
+.tooltip-button {
+  position: absolute;
+  top: 71%;
+  left: 0%;
+  /* transform: translateX(10%); */
+  color: white;
+  background-color: black;
+  width: auto;
+  /* border: 1px solid white; */
+}
+
+.tooltip-button::after {
+  left: 0%;
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  /* top: auto; */
+  top: -10px;
+  border-color: transparent transparent black transparent;
 }
 
 .register-footer {

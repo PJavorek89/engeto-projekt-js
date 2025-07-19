@@ -1,5 +1,10 @@
 import "/src/css/compareElements.css";
 
+type compareElementsArguments = {
+  firstElementId: string;
+  secondElementId: string;
+};
+
 /**
  * Function, which takes Id of 2 HTMLinput element as parameters, if elements exist, they get eventListener and their content
  *  will be compared on fly and get borders depending on situations :
@@ -9,11 +14,13 @@ import "/src/css/compareElements.css";
  * @param firstElemenId Id of first element, which content will be compared to secondElement and get EventListener
  * @param secondElementId Id of second element, which content will be compared to firstElement and get EventListener
  */
-const compareElements = (
-  firstElemenId: string,
-  secondElementId: string
-): void => {
-  const firstIpnut = document.getElementById(firstElemenId) as HTMLInputElement;
+const compareElements = ({
+  firstElementId,
+  secondElementId,
+}: compareElementsArguments): void => {
+  const firstIpnut = document.getElementById(
+    firstElementId
+  ) as HTMLInputElement;
   const secondIpnut = document.getElementById(
     secondElementId
   ) as HTMLInputElement;
@@ -26,10 +33,10 @@ const compareElements = (
 };
 
 /**
- * function take 2 HTMLinput element to compare and get color border depend on situation
+ * function takes 2 HTMLinput element to compare and get color border depend on situation
  * This comparations is one time and not dynamic (without eventListeners)
  * green border-> content1 coresponding with content2
- * red border -> content1 is not corresponding iwth content2
+ * red border -> content1 is not corresponding with content2
  *
  * @param element1 first HTMLInputElement
  * @param element2 second HTMLInputElement
