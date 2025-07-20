@@ -1,9 +1,22 @@
+/**
+ * Type of args for comparePasswdMatching method
+ */
 type passwdMatchingArguments = {
+  /**Id of form in html */
   idOfForm: string;
+  /** Id of input with first fields to check against second input */
   idOfPasswdInput: string;
+  /** Id of second input to check against first input */
   idOfPasswdControlInput: string;
 };
 
+/**
+ * If password and password-control fields (or any other 2 choose input fields) does not match.
+ * Dont do anything with submit data and return custom error message about mathcing fields
+ * @param idOfForm Id of form in html
+ * @param idOfPasswdInput Id of input with first fields to check against second input
+ * @param idOfPasswdControlInput Id of second input to check against first input
+ */
 const comparePasswdMatching = ({
   idOfForm,
   idOfPasswdInput,
@@ -25,7 +38,7 @@ const comparePasswdMatching = ({
     inputsCustomValidity(passwdInput, passwdControlInput);
   });
 
-  //nastaveni eventListeneru na form a kontrola hesel
+  //add event listener to form on passwd + passwd control for checking password
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
     if (passwdInput.value != passwdControlInput.value) {
@@ -37,6 +50,11 @@ const comparePasswdMatching = ({
   });
 };
 
+/**
+ * Set empty custom validity (no error message in case of reportValidity())
+ * to array of inputs
+ * @param ...inputs array of HTMLElments
+ */
 const inputsCustomValidity = (...inputs: HTMLInputElement[]) => {
   inputs.forEach((input) => {
     input.setCustomValidity("");
