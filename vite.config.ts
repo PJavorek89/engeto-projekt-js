@@ -15,4 +15,5 @@ export default defineConfig({
       },
     },
   },
+  base: "/engeto-projekt-js/",
 });
