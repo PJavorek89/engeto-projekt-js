@@ -1,12 +1,25 @@
 import "/src/css/createNavOnPageElement.css";
 
 /**
- *
+ * argument for createNavOnPageElement fce
  */
 type createNavOnPageElementParams = {
+  /**id of element, which will be found and get onClick fce to navigate */
   idOfElement: string;
+  /**where will be user navigate on page */
   toNavigate: string;
+  /** value of scroll to get nav element visible, if not present, element will be visible without condition*/
   valueForActivate?: number;
+};
+
+/**
+ * argument for setElementForNavigateParams fce
+ */
+type setElementForNavigateParams = {
+  /**id of element, which will be found and get onClick fce to navigate */
+  elementId: string;
+  /**where will be user navigate on page */
+  toNavigate: string;
 };
 
 /**
@@ -16,24 +29,20 @@ type createNavOnPageElementParams = {
  * If you want to let element visible from rendering of the page (e.g.: for sidebar nav panel), do not set valueForActivate
  *
  *
- * @idOfElement id of element, which will be found and get onClick fce to navigate
- * @toNavigate where will be user navigate on page
- * @valueForActivate value of scroll to get nav element visible, if not present, element will be visible without condition
+ * @param args.idOfElement id of element, which will be found and get onClick fce to navigate
+ * @param args.toNavigate where will be user navigate on page
+ * @param args.valueForActivate value of scroll to get nav element visible, if not present, element will be visible without condition
  *
  */
-const createNavOnPageElement = ({
-  idOfElement,
-  toNavigate,
-  valueForActivate,
-}: createNavOnPageElementParams): void => {
+const createNavOnPageElement = (args: createNavOnPageElementParams): void => {
+  const { idOfElement, toNavigate, valueForActivate } = args;
   const elementToSetVisible = document.getElementById(idOfElement);
   if (typeof valueForActivate == "number") {
     elementToSetVisible?.classList.add("hidden");
   }
-  setElementForNavigate(idOfElement, toNavigate);
+  setElementForNavigate({ elementId: idOfElement, toNavigate: toNavigate });
 
-  if (valueForActivate) {
-    //typeof valueForActivate == "number"
+  if (valueForActivate !== undefined) {
     window.addEventListener("scroll", () => {
       const scrooledBy = window.scrollY;
 
@@ -46,11 +55,11 @@ const createNavOnPageElement = ({
 
 /**
  * Add eventListener on the button for navigation on page to the certain element
+ * @param args.elementId Id of in which we will se navigation
+ * @param args.toNavigate Id of element to navigate
  */
-const setElementForNavigate = (
-  elementId: string,
-  toNavigate: string
-): boolean => {
+const setElementForNavigate = (args: setElementForNavigateParams): boolean => {
+  const { elementId, toNavigate } = args;
   const elementForNavigation: HTMLElement | null =
     document.getElementById(elementId);
   elementForNavigation?.addEventListener("click", () => {

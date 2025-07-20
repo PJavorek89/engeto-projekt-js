@@ -13,15 +13,12 @@ type passwdMatchingArguments = {
 /**
  * If password and password-control fields (or any other 2 choose input fields) does not match.
  * Dont do anything with submit data and return custom error message about mathcing fields
- * @param idOfForm Id of form in html
- * @param idOfPasswdInput Id of input with first fields to check against second input
- * @param idOfPasswdControlInput Id of second input to check against first input
+ * @param args.idOfForm Id of form in html
+ * @param args.idOfPasswdInput Id of input with first fields to check against second input
+ * @param args.idOfPasswdControlInput Id of second input to check against first input
  */
-const comparePasswdMatching = ({
-  idOfForm,
-  idOfPasswdInput,
-  idOfPasswdControlInput,
-}: passwdMatchingArguments) => {
+const comparePasswdMatching = (args: passwdMatchingArguments) => {
+  const { idOfForm, idOfPasswdInput, idOfPasswdControlInput } = args;
   const form = document.getElementById(idOfForm) as HTMLFormElement;
   const passwdInput = document.getElementById(
     idOfPasswdInput
