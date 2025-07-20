@@ -13,8 +13,6 @@
   height: calc(100vh - var(--height-header));
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: center; */
-  /* background-attachment: scroll; */
   background-attachment: fixed;
 }
 
@@ -38,7 +36,6 @@
 
 .hero-section-text div {
   text-align: center;
-  /* margin: 0 15px; */
 }
 
 .main-text {
@@ -87,9 +84,7 @@
 
 /* movie */
 .movie {
-  /* height: 300px; */
   background-color: var(--color-basic-black);
-  /* height: 100vh; */
 }
 
 .movie-content {
@@ -101,9 +96,7 @@
 .movie-recommended {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
   justify-content: center;
-  /* align-items: center; */
   gap: 5px;
   margin: 0 25px;
 }
@@ -124,13 +117,10 @@
   text-align: center;
   color: var(--color-fonts-main);
   width: 130px;
-  /* padding: 5px 5px; */
   background-color: var(--color-main-red);
   margin: 15px auto;
   min-width: fit-content;
-  /* border: none; */
   border-radius: 5px;
-  /* border-radius: 3px; */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -156,14 +146,11 @@
 footer {
   color: var(--color-footer-fonts);
   background-color: var(--color-basic-black);
-  /* flex-wrap: wrap; */
-  /* width: 50%; */
   margin: 0 auto;
 }
 
 .footer-wrapper {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   width: var(--width-mobile-container);
   margin: 0 auto;
@@ -177,8 +164,6 @@ footer ul {
   font-size: x-small;
   margin: 15px 15px;
   text-align: center;
-  /* width: 50%; */
-  /* width: 40%; */
 }
 
 @media (min-width: 768px) {
@@ -195,8 +180,6 @@ footer ul {
 }
 
 #fa-up {
-  /* width: 32px; */
-  /* height: 32px; */
   font-weight: 400;
   font-size: 35px;
   border-radius: 50%;
@@ -204,10 +187,7 @@ footer ul {
   clip-path: circle(50%);
   position: fixed;
   right: 18px;
-  /* left: calc(100vw / 2); */
   bottom: 40px;
-  /* visibility: hidden; */
-  /* border-color: #333 transparent transparent transparent; */
 }
 
 #fa-up:hover {
@@ -219,7 +199,6 @@ footer ul {
     right: 5%;
     bottom: 25px;
     font-size: 40px;
-    /* font-weight: 200px; */
   }
 }
 

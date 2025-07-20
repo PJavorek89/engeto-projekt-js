@@ -1,6 +1,5 @@
 .filtered-movie-spaceholder {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   width: 75%;
   justify-content: center;

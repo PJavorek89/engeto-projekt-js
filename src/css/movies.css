@@ -36,7 +36,6 @@ body {
 }
 
 .select {
-  /* margin: 0 auto; */
   background-color: var(--color-basic-black);
   display: flex;
   flex-direction: column;
@@ -44,9 +43,6 @@ body {
   margin: 0 auto;
   padding-top: 10px;
   align-items: center;
-}
-
-.movie-form {
 }
 
 .movie-select {

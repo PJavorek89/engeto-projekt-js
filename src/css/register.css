@@ -2,9 +2,6 @@
 
 .register-wrapper {
   height: calc(100vh - (2 * var(--height-header)));
-  /* background-color: blue; */
-  /* margin: 5px; */
-  /* border: 1px solid transparent; ochrana proti margin collapsing */
   background-image: radial-gradient(
       circle,
       rgba(0, 0, 0, 0.7) 0%,
@@ -14,9 +11,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
-  /* align-items: center; */
 }
 
 .register-form {
@@ -25,14 +20,11 @@
   align-items: center;
   padding: 3rem 0;
   row-gap: 5px;
-  /* position: relative; */
-  /* margin: 20px; */
   width: clamp(250px, var(--width-mobile-container), 410px);
   position: relative;
 }
 
 .register-form * {
-  /* width: clamp(250px, var(--width-mobile-container), 410px); */
   width: 100%;
 }
 
@@ -50,18 +42,15 @@
   color: var(--color-fonts-main);
   background-color: var(--color-main-red);
   height: 3.5rem;
-  /* position: relative; */
 }
 
 .tooltip-button {
   position: absolute;
   top: 71%;
   left: 0%;
-  /* transform: translateX(10%); */
   color: white;
   background-color: black;
   width: auto;
-  /* border: 1px solid white; */
 }
 
 .tooltip-button::after {
@@ -70,7 +59,6 @@
   position: absolute;
   border-width: 5px;
   border-style: solid;
-  /* top: auto; */
   top: -10px;
   border-color: transparent transparent black transparent;
 }

@@ -9,11 +9,10 @@
   --height-header: 3rem;
 
   --width-mobile-container: 90%;
+  /* breakpoint for tablet: 768px */
   --width-tablet-container: 95%;
-  --width-desktop-container: 90%;
-
-  /* --width-media-tablet: 768px; */
-  /* --width-media-desktop: 980px; */
+  /* breakpoint for desktop: 980px */
+  --width-desktop-container: 97%;
 }
 
 * {
@@ -23,11 +22,6 @@
   font-family: Roboto, "sans-serif";
   scroll-behavior: smooth;
   scroll-padding-top: var(--height-header);
-}
-
-/* test */
-* {
-  /* border: 1px dotted purple; */
 }
 
 a {
