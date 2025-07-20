@@ -3,30 +3,30 @@
  *
  */
 type AddElementParams = {
+  /**string represents type of created element */
   typeOfElement: string;
+  /**string or string[] with name of classes for created element */
   classToAdd?: string | string[];
+  /** name of parent HTML element on which will be created element added*/
   whereToAdd?: HTMLElement | null;
+  /**decide if element should be append (false : falsy) or prepend (true) to his parent */
   isPrepend?: boolean;
+  /**string with name of Id for created element */
   idToAdd?: string;
 };
 
 /**
  * Create and append element with classes to parent
  *
- * @param typeOfElement string represents type of created element
- * @param classToAdd string or string[] with name of classes for created element
- * @param whereToAdd name of parent HTML element on which will be created element added
- * @param isPrepend decide if element should be append (false : falsy) or prepend (true) to his parent
- * @param idToAdd string with name of Id for created element
+ * @param args.typeOfElement string represents type of created element
+ * @param args.classToAdd string or string[] with name of classes for created element
+ * @param args.whereToAdd name of parent HTML element on which will be created element added
+ * @param args.isPrepend decide if element should be append (false : falsy) or prepend (true) to his parent
+ * @param args.idToAdd string with name of Id for created element
  * @returns created element
  */
-const addElement = ({
-  typeOfElement,
-  classToAdd,
-  whereToAdd,
-  isPrepend,
-  idToAdd,
-}: AddElementParams): HTMLElement => {
+const addElement = (args: AddElementParams): HTMLElement => {
+  const { typeOfElement, classToAdd, whereToAdd, isPrepend, idToAdd } = args;
   const elementToCreate = document.createElement(typeOfElement);
   if (classToAdd) {
     Array.isArray(classToAdd)
