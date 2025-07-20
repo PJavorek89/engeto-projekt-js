@@ -63,7 +63,6 @@ const setElementForNavigate = (args: setElementForNavigateParams): boolean => {
   const elementForNavigation: HTMLElement | null =
     document.getElementById(elementId);
   elementForNavigation?.addEventListener("click", () => {
-    console.log("click");
     window.location.hash = toNavigate;
   });
   return elementForNavigation === null ? false : true;
