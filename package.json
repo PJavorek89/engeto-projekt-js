@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build   && node scripts/copy-html.cjs && node scripts/change-links.cjs",
+    "build": "tsc && vite build && node scripts/copy-html.cjs && node scripts/change-links.cjs",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",

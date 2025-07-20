@@ -6,7 +6,9 @@
  */
 const setPageUrl = (originalUrl: string): string => {
   const isDev: boolean = import.meta.env.DEV;
-  const prefix: string = isDev ? "/pages/" : "/";
+  const prefix: string = isDev
+    ? import.meta.env.BASE_URL + "/pages/"
+    : import.meta.env.BASE_URL;
   return prefix.concat(originalUrl).concat(".html");
 };
 
