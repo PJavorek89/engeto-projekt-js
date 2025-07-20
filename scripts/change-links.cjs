@@ -6,5 +6,5 @@ let html = fs.readFileSync(indexPath, "utf-8");
 
 //nahrazeni odkazu
 const base = "/engeto-projekt-js/";
-html = html.replace(/href="\/pages\/(.*?)"/g, `href="${base}/$1"`);
+html = html.replace(/href="\/?pages\/(.*?)"/g, `href="${base}/$1"`);
 fs.writeFileSync(indexPath, html);
