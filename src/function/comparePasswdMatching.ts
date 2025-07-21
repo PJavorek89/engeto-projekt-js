@@ -50,7 +50,7 @@ const comparePasswdMatching = (args: passwdMatchingArguments) => {
 /**
  * Set empty custom validity (no error message in case of reportValidity())
  * to array of inputs
- * @param ...inputs array of HTMLElments
+ * @param inputs one or more HTMLElments sets in args like (x1, x2, x3...)
  */
 const inputsCustomValidity = (...inputs: HTMLInputElement[]) => {
   inputs.forEach((input) => {

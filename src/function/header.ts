@@ -54,7 +54,6 @@ const createHeader = (): HTMLElement => {
   }) as HTMLImageElement;
 
   //add values and property to headerLogoImg
-  //console.log(import.meta.env.DEV);
   const imgUrl = new URL("/src/pictures/netflix-logo.png", import.meta.url)
     .href;
 

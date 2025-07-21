@@ -57,8 +57,8 @@ const compareElements = (args: compareElementsArguments): void => {
  * green border-> content1 coresponding with content2
  * red border -> content1 is not corresponding with content2
  *
- * @param element1 first HTMLInputElement
- * @param element2 second HTMLInputElement
+ * @param args.element1 first HTMLInputElement
+ * @param args.element2 second HTMLInputElement
  */
 const addOrRemoveBorderBasedOnComparation = (
   args: addOrRemoveBorderBasedOnComparationArguments

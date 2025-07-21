@@ -85,7 +85,6 @@ const filteredMovie = async (
       throw new Error(`${response.status}`);
     }
   } catch (err) {
-    console.log("catch" + err);
     isError = true;
     errorType = document.createTextNode(err as string);
   } finally {
