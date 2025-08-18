@@ -47,11 +47,14 @@ const createHeader = (): HTMLElement => {
   });
 
   //append img class "header-logo" to logoWrapperDiv
+  createLogo(logoWrapperDiv);
+  /* original fce
   const headerLogoImg: HTMLImageElement = addElement({
     typeOfElement: "img",
     classToAdd: "header-logo",
     whereToAdd: logoWrapperDiv,
   }) as HTMLImageElement;
+  
 
   //add values and property to headerLogoImg
   const imgUrl = new URL("/src/pictures/netflix-logo.png", import.meta.url)
@@ -59,8 +62,15 @@ const createHeader = (): HTMLElement => {
 
   headerLogoImg.src = imgUrl;
   headerLogoImg.alt = "logo netflix";
+  */
 
+  //change
   //append a class "header-button" to headerObjectWrapperDiv
+  /*
+  //new fce
+  */
+  createButton(headerObjectWrapperDiv);
+  /*
   const headerButtonAnchor: HTMLAnchorElement = addElement({
     typeOfElement: "a",
     classToAdd: "header-button",
@@ -74,8 +84,46 @@ const createHeader = (): HTMLElement => {
   headerButtonAnchor.href = isMainPage
     ? setPageUrl("register")
     : setPageUrl("index");
+    */
 
   return header;
+};
+
+//create logo function
+const createLogo = (toAdd: HTMLElement): HTMLImageElement => {
+  const logoImg = addElement({
+    typeOfElement: "img",
+    classToAdd: "header-logo",
+    whereToAdd: toAdd,
+  }) as HTMLImageElement;
+
+  //add values and property to headerLogoImg
+  const imgUrl = new URL("/src/pictures/netflix-logo.png", import.meta.url)
+    .href;
+
+  logoImg.src = imgUrl;
+  logoImg.alt = "logo netflix";
+
+  return logoImg;
+};
+
+//create button with a element and name
+const createButton = (toAdd: HTMLElement): HTMLAnchorElement => {
+  const headerButtonAnchor: HTMLAnchorElement = addElement({
+    typeOfElement: "a",
+    classToAdd: "header-button",
+    whereToAdd: toAdd,
+  }) as HTMLAnchorElement;
+
+  //add values and property to headerButtonAnchor
+  let isMainPage: boolean = document.title === "main" ? true : false;
+
+  headerButtonAnchor.textContent = isMainPage ? "Registrace" : "Main page";
+  headerButtonAnchor.href = isMainPage
+    ? setPageUrl("register")
+    : setPageUrl("index");
+
+  return headerButtonAnchor;
 };
 
 export default createHeader;
