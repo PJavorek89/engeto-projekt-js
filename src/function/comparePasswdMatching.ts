@@ -1,7 +1,7 @@
 /**
  * Type of args for comparePasswdMatching method
  */
-type passwdMatchingArguments = {
+type PasswdMatchingArguments = {
   /**Id of form in html */
   idOfForm: string;
   /** Id of input with first fields to check against second input */
@@ -17,7 +17,7 @@ type passwdMatchingArguments = {
  * @param args.idOfPasswdInput Id of input with first fields to check against second input
  * @param args.idOfPasswdControlInput Id of second input to check against first input
  */
-const comparePasswdMatching = (args: passwdMatchingArguments) => {
+const comparePasswdMatching = (args: PasswdMatchingArguments) => {
   const { idOfForm, idOfPasswdInput, idOfPasswdControlInput } = args;
   const form = document.getElementById(idOfForm) as HTMLFormElement;
   const passwdInput = document.getElementById(

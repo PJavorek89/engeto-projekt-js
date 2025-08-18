@@ -3,7 +3,7 @@ import "/src/css/createNavOnPageElement.css";
 /**
  * argument for createNavOnPageElement fce
  */
-type createNavOnPageElementParams = {
+type CreateNavOnPageElementParams = {
   /**id of element, which will be found and get onClick fce to navigate */
   idOfElement: string;
   /**where will be user navigate on page */
@@ -15,7 +15,7 @@ type createNavOnPageElementParams = {
 /**
  * argument for setElementForNavigateParams fce
  */
-type setElementForNavigateParams = {
+type SetElementForNavigateParams = {
   /**id of element, which will be found and get onClick fce to navigate */
   elementId: string;
   /**where will be user navigate on page */
@@ -34,7 +34,7 @@ type setElementForNavigateParams = {
  * @param args.valueForActivate value of scroll to get nav element visible, if not present, element will be visible without condition
  *
  */
-const createNavOnPageElement = (args: createNavOnPageElementParams): void => {
+const createNavOnPageElement = (args: CreateNavOnPageElementParams): void => {
   const { idOfElement, toNavigate, valueForActivate } = args;
   const elementToSetVisible = document.getElementById(idOfElement);
   if (typeof valueForActivate == "number") {
@@ -44,9 +44,9 @@ const createNavOnPageElement = (args: createNavOnPageElementParams): void => {
 
   if (valueForActivate !== undefined) {
     window.addEventListener("scroll", () => {
-      const scrooledBy = window.scrollY;
+      const scrolledBy = window.scrollY;
 
-      valueForActivate < scrooledBy
+      valueForActivate < scrolledBy
         ? elementToSetVisible?.classList.replace("hidden", "visible")
         : elementToSetVisible?.classList.replace("visible", "hidden");
     });
@@ -58,7 +58,7 @@ const createNavOnPageElement = (args: createNavOnPageElementParams): void => {
  * @param args.elementId Id of in which we will se navigation
  * @param args.toNavigate Id of element to navigate
  */
-const setElementForNavigate = (args: setElementForNavigateParams): boolean => {
+const setElementForNavigate = (args: SetElementForNavigateParams): boolean => {
   const { elementId, toNavigate } = args;
   const elementForNavigation: HTMLElement | null =
     document.getElementById(elementId);

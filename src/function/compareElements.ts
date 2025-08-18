@@ -3,7 +3,7 @@ import "/src/css/compareElements.css";
 /**
  * Type of args for compareElements method
  */
-type compareElementsArguments = {
+type CompareElementsArguments = {
   /**Id of first element, which content will be compared to secondElement and get EventListener */
   firstElementId: string;
   /**Id of second element, which content will be compared to firstElement and get EventListener */
@@ -13,7 +13,7 @@ type compareElementsArguments = {
 /**
  * Type of args for addOrRemoveBorderBasedOnComparation method
  */
-type addOrRemoveBorderBasedOnComparationArguments = {
+type AddOrRemoveBorderBasedOnComparationArguments = {
   /**first HTMLInputElement */
   element1: HTMLInputElement;
   /**second HTMLInputElement */
@@ -29,24 +29,24 @@ type addOrRemoveBorderBasedOnComparationArguments = {
  * @param args.firstElemenId Id of first element, which content will be compared to secondElement and get EventListener
  * @param args.secondElementId Id of second element, which content will be compared to firstElement and get EventListener
  */
-const compareElements = (args: compareElementsArguments): void => {
+const compareElements = (args: CompareElementsArguments): void => {
   const { firstElementId, secondElementId } = args;
-  const firstIpnut = document.getElementById(
+  const firstInput = document.getElementById(
     firstElementId
   ) as HTMLInputElement;
-  const secondIpnut = document.getElementById(
+  const secondInput = document.getElementById(
     secondElementId
   ) as HTMLInputElement;
-  firstIpnut?.addEventListener("input", () => {
+  firstInput?.addEventListener("input", () => {
     addOrRemoveBorderBasedOnComparation({
-      element1: firstIpnut,
-      element2: secondIpnut,
+      element1: firstInput,
+      element2: secondInput,
     });
   });
-  secondIpnut?.addEventListener("input", () => {
+  secondInput?.addEventListener("input", () => {
     addOrRemoveBorderBasedOnComparation({
-      element1: firstIpnut,
-      element2: secondIpnut,
+      element1: firstInput,
+      element2: secondInput,
     });
   });
 };
@@ -61,7 +61,7 @@ const compareElements = (args: compareElementsArguments): void => {
  * @param args.element2 second HTMLInputElement
  */
 const addOrRemoveBorderBasedOnComparation = (
-  args: addOrRemoveBorderBasedOnComparationArguments
+  args: AddOrRemoveBorderBasedOnComparationArguments
 ): void => {
   const { element1, element2 } = args;
   if (element1.value != "" || element2.value != "") {
