@@ -5,5 +5,5 @@ createHeader();
 createNavOnPageElement({
   idOfElement: "fa-up",
   toNavigate: "header",
-  valueForActivate: 175,
+  SCROLL_TRESHOLD: 175,
 });

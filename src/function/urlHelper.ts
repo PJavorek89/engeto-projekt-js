@@ -9,9 +9,9 @@ const setPageUrl = (originalUrl: string): string => {
   const prefixToMain: string = import.meta.env.BASE_URL;
 
   if (originalUrl === "index") {
-    return prefixToMain.concat(originalUrl).concat(".html");
+    return `${prefixToMain}${originalUrl}.html`;
   } else {
-    return prefix.concat(originalUrl).concat(".html");
+    return `${prefix}${originalUrl}.html`;
   }
 };
 

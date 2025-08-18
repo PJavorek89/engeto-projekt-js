@@ -52,12 +52,12 @@ const filteredMovie = async (
   valueToFilter: string,
   whereToAdd: HTMLElement
 ) => {
-  const urlToCall = "https://api.tvmaze.com/search/shows?q=";
+  const API_BASE_URL = "https://api.tvmaze.com/search/shows?q=";
   let data: Movie[] = [];
   //occurrance of error false=no error, true = error
-  let isError: boolean = false;
+  let hasError: boolean = false;
   //value of error type for error rendering
-  let errorType: Text = document.createTextNode("");
+  let errorType: string = "";
 
   //create loading element and add him to page in the start the filteredMovie function
   const loadingElement = addElement({
@@ -75,25 +75,27 @@ const filteredMovie = async (
     classToAdd: "error-element",
     idToAdd: "error-element",
   });
-  errorElement.textContent = "Opps, something went wrong \n";
+  const ERROR_BASIC_TEXT = "Opps, something went wrong: \n";
 
   //fetch data or catch error element in case of error
   try {
-    const response = await fetch(urlToCall + valueToFilter);
+    const response = await fetch(`${API_BASE_URL}${valueToFilter}`);
     data = await response.json();
     if (!response.ok) {
-      throw new Error(`${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
   } catch (err) {
-    isError = true;
-    errorType = document.createTextNode(err as string);
+    hasError = true;
+    errorType =
+      err instanceof Error ? (err as unknown as string) : "Unknown error";
+    errorElement.textContent = `${ERROR_BASIC_TEXT}${errorType}`;
   } finally {
     whereToAdd?.removeChild(loadingElement);
   }
 
   //render error or movie to the page
-  if (isError) {
-    errorElement.appendChild(errorType);
+  if (hasError) {
+    //errorElement.appendChild(errorType);
     whereToAdd?.appendChild(errorElement);
   } else {
     data.forEach((movie: Movie) => {

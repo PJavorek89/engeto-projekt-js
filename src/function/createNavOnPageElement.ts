@@ -9,7 +9,7 @@ type CreateNavOnPageElementParams = {
   /**where will be user navigate on page */
   toNavigate: string;
   /** value of scroll to get nav element visible, if not present, element will be visible without condition*/
-  valueForActivate?: number;
+  SCROLL_TRESHOLD?: number;
 };
 
 /**
@@ -35,7 +35,7 @@ type SetElementForNavigateParams = {
  *
  */
 const createNavOnPageElement = (args: CreateNavOnPageElementParams): void => {
-  const { idOfElement, toNavigate, valueForActivate } = args;
+  const { idOfElement, toNavigate, SCROLL_TRESHOLD: valueForActivate } = args;
   const elementToSetVisible = document.getElementById(idOfElement);
   if (typeof valueForActivate == "number") {
     elementToSetVisible?.classList.add("hidden");
