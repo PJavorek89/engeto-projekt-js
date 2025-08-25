@@ -34,9 +34,23 @@ const compareElements = (args: CompareElementsArguments): void => {
   const firstInput = document.getElementById(
     firstElementId
   ) as HTMLInputElement;
+  //null check
+  if (!firstInput) {
+    alert(
+      `Not able to create fce compareElements \nCannot find elemet by id ${firstElementId}`
+    );
+    return;
+  }
+
   const secondInput = document.getElementById(
     secondElementId
   ) as HTMLInputElement;
+  if (!secondInput) {
+    alert(
+      `Not able to create fce compareElements \nCannot find elemet by id ${secondElementId}`
+    );
+    return;
+  }
   firstInput?.addEventListener("input", () => {
     addOrRemoveBorderBasedOnComparation({
       element1: firstInput,

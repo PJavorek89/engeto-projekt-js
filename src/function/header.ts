@@ -9,7 +9,6 @@ import "/src/css/header.css";
  */
 const createHeader = (): HTMLElement => {
   const body: HTMLElement | null = document.querySelector("body");
-
   //create and add header element
   const header: HTMLElement = addElement({
     typeOfElement: "header",
@@ -46,50 +45,21 @@ const createHeader = (): HTMLElement => {
     whereToAdd: headerObjectWrapperDiv,
   });
 
-  //append img class "header-logo" to logoWrapperDiv
+  //append img element woth class "header-logo" to logoWrapperDiv
   createLogo(logoWrapperDiv);
-  /* original fce
-  const headerLogoImg: HTMLImageElement = addElement({
-    typeOfElement: "img",
-    classToAdd: "header-logo",
-    whereToAdd: logoWrapperDiv,
-  }) as HTMLImageElement;
-  
 
-  //add values and property to headerLogoImg
-  const imgUrl = new URL("/src/pictures/netflix-logo.png", import.meta.url)
-    .href;
-
-  headerLogoImg.src = imgUrl;
-  headerLogoImg.alt = "logo netflix";
-  */
-
-  //change
-  //append a class "header-button" to headerObjectWrapperDiv
-  /*
-  //new fce
-  */
+  //append anchor element with a class "header-button" to headerObjectWrapperDiv
   createButton(headerObjectWrapperDiv);
-  /*
-  const headerButtonAnchor: HTMLAnchorElement = addElement({
-    typeOfElement: "a",
-    classToAdd: "header-button",
-    whereToAdd: headerObjectWrapperDiv,
-  }) as HTMLAnchorElement;
-
-  //add values and property to headerButtonAnchor
-  let isMainPage: boolean = document.title === "main" ? true : false;
-
-  headerButtonAnchor.textContent = isMainPage ? "Registrace" : "Main page";
-  headerButtonAnchor.href = isMainPage
-    ? setPageUrl("register")
-    : setPageUrl("index");
-    */
 
   return header;
 };
 
-//create logo function
+/**
+ * Create and add logo to header
+ *
+ * @param toAdd HTMLElement, to which will be ImageElement add (as a child element)
+ * @returns
+ */
 const createLogo = (toAdd: HTMLElement): HTMLImageElement => {
   const logoImg = addElement({
     typeOfElement: "img",
@@ -108,6 +78,12 @@ const createLogo = (toAdd: HTMLElement): HTMLImageElement => {
 };
 
 //create button with a element and name
+/**
+ * Create, name and set href of anchor element
+ *
+ * @param toAdd HTMLElement, to which will be anchorElent add (as a child element)
+ * @returns
+ */
 const createButton = (toAdd: HTMLElement): HTMLAnchorElement => {
   const headerButtonAnchor: HTMLAnchorElement = addElement({
     typeOfElement: "a",
