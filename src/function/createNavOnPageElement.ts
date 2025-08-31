@@ -62,6 +62,14 @@ const setElementForNavigate = (args: SetElementForNavigateParams): boolean => {
   const { elementId, toNavigate } = args;
   const elementForNavigation: HTMLElement | null =
     document.getElementById(elementId);
+
+  if (!elementForNavigation) {
+    alert(
+      `Not able to create fce setElementForNavigate \nCannot find elemet by id ${elementId}`
+    );
+    return false;
+  }
+
   elementForNavigation?.addEventListener("click", () => {
     window.location.hash = toNavigate;
   });

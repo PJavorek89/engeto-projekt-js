@@ -20,12 +20,30 @@ type PasswdMatchingArguments = {
 const comparePasswdMatching = (args: PasswdMatchingArguments) => {
   const { idOfForm, idOfPasswdInput, idOfPasswdControlInput } = args;
   const form = document.getElementById(idOfForm) as HTMLFormElement;
+  if (!form) {
+    alert(
+      `Not able to create fce comparePasswdMatching \nCannot find elemet by id ${idOfForm}`
+    );
+    return;
+  }
   const passwdInput = document.getElementById(
     idOfPasswdInput
   ) as HTMLInputElement;
+  if (!passwdInput) {
+    alert(
+      `Not able to create fce comparePasswdMatching \nCannot find elemet by id ${idOfPasswdInput}`
+    );
+    return;
+  }
   const passwdControlInput = document.getElementById(
     idOfPasswdControlInput
   ) as HTMLInputElement;
+  if (!passwdControlInput) {
+    alert(
+      `Not able to create fce comparePasswdMatching \nCannot find elemet by id ${idOfPasswdControlInput}`
+    );
+    return;
+  }
 
   passwdInput.addEventListener("input", () => {
     inputsCustomValidity(passwdInput, passwdControlInput);

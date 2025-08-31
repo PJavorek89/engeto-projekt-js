@@ -29,6 +29,12 @@ const addMovieFilter = (idOfElement: string): void => {
   const selectMovieElement = document.getElementById(
     idOfElement
   ) as HTMLSelectElement | null;
+  if (!selectMovieElement) {
+    alert(
+      `Not able to create fce addMovieFilter \nCannot find elemet by id ${idOfElement}`
+    );
+    return;
+  }
   const spaceForFilteredMovies = document.createElement("div");
   spaceForFilteredMovies.classList.add("filtered-movie-spaceholder");
   selectMovieElement?.insertAdjacentElement(
